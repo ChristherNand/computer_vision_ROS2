@@ -3,11 +3,16 @@
 <package format="3">
   <name>computer_vision</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>Computer Vision package with ROS 2 and OpenCV</description>
   <maintainer email="dockeruser@todo.todo">dockeruser</maintainer>
   <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>sensor_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>opencv</depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
