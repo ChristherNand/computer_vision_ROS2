@@ -4,6 +4,7 @@
 #include <opencv2/opencv.hpp>
 
 using std::placeholders::_1;
+using sensor_msgs::msg::Image;
 
 class ImageSubscriber : public rclcpp::Node
 {
@@ -13,7 +14,7 @@ public:
   {
     // Create a subscription to the image topic
     // Quality of Service (QoS) is set to 'best effort' with a history depth of 1
-    subscription_ = this->create_subscription<sensor_msgs::msg::Image>(
+    subscription_ = this->create_subscription<Image>(
       "/camera/image_raw", // Image topic name
       rclcpp::SensorDataQoS(), // Recommended QoS for sensor data
       std::bind(&ImageSubscriber::image_callback, this, _1));
@@ -22,7 +23,7 @@ public:
   }
 
 private:
-  void image_callback(const sensor_msgs::msg::Image::SharedPtr msg)
+  void image_callback(const Image::SharedPtr msg)
   {
     RCLCPP_INFO(this->get_logger(), "Received image message.");
 
@@ -78,7 +79,7 @@ private:
     return r;
   }
 
-  rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr subscription_;
+  rclcpp::Subscription<Image>::SharedPtr subscription_;
 };
 
 int main(int argc, char * argv[])

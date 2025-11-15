@@ -19,25 +19,6 @@ install(TARGETS
   cv_node
   DESTINATION lib/${PROJECT_NAME})
 
-# add_executable(cv_node src/cv_node.cpp)
-# target_include_directories(cv_node PUBLIC
-#   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-#   $<INSTALL_INTERFACE:include>
-#   # Include directories for ROS 2 and OpenCV
-#   ${rclcpp_INCLUDE_DIRS}
-#   ${sensor_msgs_INCLUDE_DIRS}
-#   ${cv_bridge_INCLUDE_DIRS}
-#   ${OpenCV_INCLUDE_DIRS}
-# )
-# target_compile_features(cv_node PUBLIC c_std_99 cxx_std_17) # Require C99 and C++17
-
-# # Link libraries to the executable
-# target_link_libraries(cv_node
-#   # Link ROS 2 and OpenCV libraries
-#   ${rclcpp_LIBRARIES}
-#   ${cv_bridge_LIBRARIES}
-#   ${OpenCV_LIBS}
-# )
 
 
 ament_package()
